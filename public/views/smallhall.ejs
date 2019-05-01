@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Universidad Complutense de Madrid</title>
+        
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- Custom styles -->
+        <link href="css/aula.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/seatchart.css">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"> 
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
+    </head>
+    <body>
+        <a id="button"></a>
+        
+        <nav class="navbar navbar-expand-md navbar-dark p-3">
+            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a id="navdropdown" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> <i class="fas fa-bars"></i> Menú</a>
+                        <div class="dropdown-menu" aria-labelledby="navdropdown">
+                            <a class="dropdown-item" href="#">Perfil</a>
+                            <a class="dropdown-item" href="#">Aula</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mx-auto order-0">
+                <a class="navbar-brand" href="#">
+                    <img src="https://www.sinnaps.com/wp-content/uploads/2016/10/UCM-Alternativa-color.png" alt="Logo Universidad Complutense">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/destroy">Salir</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="container mt-2">
+            <div id="seatMapDiv" class="p-2 col-xs-12 seating-chart block-center">
+                <h5 class='text-center mb-1'>AULA 1</h5>
+                <h5 class="text-center"><small>Estructura de Datos y Algoritmos (15:00)</small></h5> 
+            </div>
+        </div>
+
+                
+        <div id="map-container"></div>
+        <div id="legend-container"></div>
+        <div id="shoppingCart-container"></div>
+        <div class="container">
+            <table class="table table-striped"> <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr data-toggle="modal" data-id="1" data-target="#orderModal">
+                        <td>1</td>
+                        <td>24234234</td>
+                        <td>A</td>
+                    </tr>
+                    <tr data-toggle="modal" data-id="2" data-target="#orderModal">
+                        <td>2</td>
+                        <td>24234234</td>
+                        <td>A</td>
+                    </tr>
+                    <tr data-toggle="modal" data-id="3" data-target="#orderModal">
+                        <td>3</td>
+                        <td>24234234</td>
+                        <td>A</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Modal -->
+            <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="orderModalLabel">Puesto 13</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row align-items-center">
+                            <div class="col-4">
+                                <div class="container">
+                                    <img src="https://image.flaticon.com/icons/svg/21/21104.svg" alt="user image"> 
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <div class="row">Nombre</div>
+                                <div class="row">Apellidos</div>
+                                <div class="row">dni </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="mr-auto">
+                            <button type="button" class="btn btn-success">Entregar</button>
+                            <button type="button" class="btn btn-danger">Notificar copia</button>
+                        </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <footer class="page-footer font-small blue fixed-bottom p-3">
+            <div class="container-fluid text-center">
+                <div class="row">
+                    <div class="col-md-6 mt-md-0">Exámenes en curso: <span class="total-number" id="ongoing">XXX</span></div>
+                    <hr class="clearfix w-100 d-md-none pb-3">
+                    <div class="col-md-6 mt-md-0">Exámenes entregados: <span class="total-number" id="finished">XXX</span></div>
+                </div>
+            </div>
+		</footer>
+        <!-- SCRIPTS -->
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="js/mdb.min.js"></script>
+        <!-- Custom JavaScript -->
+        <script type="text/javascript" src="js/backtotop.js"></script>
+        <script type="text/javascript" src="js/seating.js"></script>
+        <script type="text/javascript" src="js/seatchart.js"></script>
+        <script>
+            // Reserved and disabled seats are indexed
+            // from left to right by starting from 0.
+            // Given the seatmap as a 2D array and an index [R, C]
+            // the following values can obtained as follow:
+            // I = cols * R + C
+            var map = {
+                rows: 9,
+                cols: 14,
+                // e.g. Reserved Seat [Row: 1, Col: 2] = 7 * 1 + 2 = 9
+                reserved: [1, 2, 3, 5, 9, 10, 11, 12, 14, 15, 18, 19, 20, 21],
+                disabled: [0, 8],
+                disabledRows: [4],
+                disabledCols: [6, 7]
+            };
+        
+            var types = [
+                { type: "regular", color: "orange", price: 10, selected: [23, 24] },
+                { type: "reduced", color: "#af0000", price: 7.5, selected: [25, 26] },
+                { type: "military", color: "red", price: 7 }
+            ];
+        
+            var sc = new SeatchartJS(map, types);
+            sc.setAssetsSrc("/path/to/assets");
+        
+            // (1) Create functions
+            sc.createMap("map-container");
+            sc.createLegend("legend-container");
+            sc.createShoppingCart("shoppingCart-container");
+        </script>
+    </body>
+</html>

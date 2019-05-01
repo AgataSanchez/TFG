@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Universidad Complutense de Madrid</title>
+        
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- Custom styles -->
+        <link href="css/useradmin.css" rel="stylesheet">
+        <link href="css/aula.css" rel="stylesheet">
+        <link href="css/exams.css" rel="stylesheet">
+       
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"> 
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <a id="button"></a>
+        
+        <nav class="navbar navbar-expand-md navbar-dark p-3">
+            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a id="navdropdown" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> <i class="fas fa-bars"></i> Menú</a>
+                        <div class="dropdown-menu" aria-labelledby="navdropdown">
+                            <a class="active dropdown-item" href="#">Perfil</a>
+                            <a class="dropdown-item" href="#">Aula</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mx-auto order-0">
+                <a class="navbar-brand" href="#">
+                    <img src="https://www.sinnaps.com/wp-content/uploads/2016/10/UCM-Alternativa-color.png" alt="Logo Universidad Complutense">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/destroy">Salir</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                    <div class="sidebar-sticky">
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                            <span>Cursos impartidos</span>
+                        </h6>
+                      <ul class="nav flex-column">
+                        <li class="nav-item">
+                          <a class="nav-link active" href="#">
+                            <span data-feather="grid"></span>
+                            AW <span class="sr-only">(current)</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="grid"></span>
+                                ABD
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="grid"></span>
+                            TAIS
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                </nav>
+          
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                      <h1 class="h2">Gestión exámenes</h1>
+                      <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group mr-2">
+                          <button class="btn btn-sm btn-outline-secondary">Share</button>
+                          <button class="btn btn-sm btn-outline-secondary">Export</button>
+                        </div>
+                      </div>
+                    </div>
+                    <h4>Añadir exámenes</h4>
+                    <div>
+                        <div class="mt-2" id="drop-area">
+                            <form id="uploadexams" method="POST" action="/uploadexams" class="my-form">
+                                <p>Adjuntar el archivo correspondiente</p>
+                                <input type="file" id="fileElem" multiple accept="file/*" onchange="handleFiles(this.files)">
+                                <label class="button" for="fileElem">Selecciona archivos</label>
+                            </form>
+                            <div id="gallery"></div>
+                        </div>
+                    </div>
+                    <div id="aniadir">
+                        <button class="button"><span>Añadir examenes</span></button>
+                    </div>
+                    <div id="pdf"></div>
+                    <div> <!--HACERLO CON EJS con el nombre de cada examen tanto en el href como en el ExamnX-->
+                        <% if((examenes!== null) && (examenes.length!==0)){ %>
+                            <% examenes.forEach(e=> { %>
+                        <p><a href="<%= e %>" class="embed-link"><%= e %></a></p>
+                        <% }) %><!--<p><a href="practica1.pdf" class="embed-link">Examen2</a></p>-->
+                        <% } %>
+                        <p><a href="practica1.pdf" class="embed-link">Examen2</a></p>
+                    </div>
+                </main>
+            </div>
+        </div>
+    
+       
+        <!--<script src="../js/pdfobject.min.js"></script>-->
+
+        <style>
+            /*
+            PDFObject appends the classname "pdfobject-container" to the target element.
+            This enables you to style the element differently depending on whether the embed was successful.
+            In this example, a successful embed will result in a large box.
+            A failed embed will not have dimensions specified, so you don't see an oddly large empty box.
+            */
+            
+            .pdfobject-container {
+                width: 100%;
+                max-width: 600px;
+                height: 600px;
+                margin: 2em 0;
+                margin-right:100px;
+                margin-top: 0px;
+            }
+            
+            .pdfobject { border: solid 1px #666; }
+            
+        </style>
+
+        <script src="js/pdfobject.min.js"></script>
+        <script>
+
+        var clickHandler = function (e) {
+            e.preventDefault();
+            var pdfURL = this.getAttribute("href");
+
+            /*var options = {
+                pdfOpenParams: {
+                    navpanes: 0,
+                    toolbar: 0,
+                    statusbar: 0,
+                    view: "FitV"
+                }
+            };*/
+
+            var myPDF = PDFObject.embed(pdfURL, "#pdf");
+            /*var el = document.querySelector("#results");
+            el.setAttribute("class", (myPDF) ? "success" : "fail");
+            el.innerHTML = (myPDF) ? "PDFObject successfully embedded '" + pdfURL + "'!" : "Uh-oh, the embed didn't work.";
+        */
+        };
+
+        var a = document.querySelectorAll(".embed-link");
+
+        for (var i=0; i < a.length; i++) {
+            a[i].addEventListener("click", clickHandler);
+        }
+        </script>
+        <script type="text/javascript" src="js/exam.js"></script>
+        <script src="https://unpkg.com/feather-icons"></script>
+        <script>
+            feather.replace()
+        </script>
+    </body>
+</html
