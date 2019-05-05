@@ -10,15 +10,22 @@ img {
 }
 #drop-area {
     border: 2px dashed #ccc;
-    border-radius: 20px;
+    border-radius: 10px;
     font-family: sans-serif;
     margin: 0 auto;
     padding: 20px;
     width: 100%;
     /*float:left;*/
   }
+
+legend.over {
+    width:inherit; /* Or auto */
+    padding:0 10px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+}
+
   #drop-area.highlight {
-    border-color: rgb(128, 0, 28);
+    border-color: #B71234;
   }
   p {
     margin-top: 0;
