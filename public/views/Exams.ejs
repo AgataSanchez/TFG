@@ -91,18 +91,13 @@
                     </div>
                     <h4>Añadir exámenes</h4>
                     <div>
-                        <form id="uploadexams" method="POST" action="/uploadexams" class="my-form">
-                            <fieldset class="mt-2" id="drop-area">
-                                <legend class="over">Elige o arrastra aquí tus exámenes</legend>
-                                <input type="file" id="fileElem" multiple accept="file/*" onchange="handleFiles(this.files)">
-                                <label class="button" for="fileElem">Selecciona archivos</label>
-                                <div id="gallery"></div>
-                               
-                            </fieldset>
-                            <div id="aniadir">
-                                <button class="button"><span>Añadir examenes</span></button>
-                            </div>
-                        </form>
+                    <!-- MULTIPLE FILES -->
+                    
+                    <form action="/uploadexams"  enctype="multipart/form-data" method="POST">
+                        Select images: <input type="file" name="examen" multiple>
+                        <input type="submit" value="Upload your files"/>
+                    </form>
+                    
                     </div>
                     <div id="pdf"></div>
                     <div> <!--HACERLO CON EJS con el nombre de cada examen tanto en el href como en el ExamnX-->
