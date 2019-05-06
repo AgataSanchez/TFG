@@ -12,7 +12,7 @@ const bodyParser = require ("body-parser");
 const session = require ("express-session");
 const expressValidator = require("express-validator");
 const multer = require("multer");
-const multerFactory = multer({ dest: path.join(__dirname, "public/img")});
+const upload = multer({ dest: path.join(__dirname, "public/uploads")});
 const util = require("util");
 const app = express();
 
@@ -261,6 +261,20 @@ app.post("/examenesSubidos", (request,response)=>{
             }
         }
     });
+});
+
+app.post('/uploadexams', upload.array('examen', 12), (request, response) => {
+    if (request.files) {
+        request.files.forEach(file => {
+            console.log(`Fichero guardado en: ${file.path}`); 
+        })
+    }
+    response.redirect("PerfilExamen");
+});
+
+app.get("/uploads/:id", (request, response) => {
+    let examPath = path.join(__dirname, "public/uploads", request.params.id);
+    response.sendFile(examPath);
 });
 
 app.get("/destroy", (request, response) => {
